@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroExpress - Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #0f0043;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar {
+            background-color: #14004f;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #555;
+            color: #fff;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #080045;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to AeroExpress</h1>
+    <p>Your go-to solution for airport intra-transportation</p>
+</div>
+
+    <nav class="navbar">
+
+       <a href="user_details">Home</a>
+    
+       <a href="bookings">Bookings</a>
+    
+       <a href="location">Location</a>
+    
+
+</nav>
+
+
+<div class="container mt-4">
+    <h2>Book A Shuttle</h2>
+
+    <form action="/bookings" method="post">
+        <label for="schedule_id">Schedule ID:</label>
+        <input type="text" id="schedule_id" name="schedule_id" required><br><br>
+
+        <label for="departure_time">Departure Time:</label>
+        <input type="time" id="departure_time" name="departure_time" required><br><br>
+
+        <label for="arrival_time">Arrival Time:</label>
+        <input type="time" id="arrival_time" name="arrival_time" required><br><br>
+
+        <label for="day_of_week">Day of Week:</label>
+        <input type="text" id="day_of_week" name="day_of_week" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    
+</div>
+
+<footer>
+    &copy; 2023 AeroExpress
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airport Location</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #0c0053;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar {
+            background-color: #03003b;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #100050;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+       
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to AeroExpress</h1>
+    <p>Your go-to solution for airport intra-transportation</p>
+    
+
+</div>
+
+<nav class="navbar">
+
+    <a href="user_details">Home</a>
+    
+    <a href="bookings">Bookings</a>
+ 
+    <a href="location">Location</a>
+</nav>
+ 
+<div class="container mt-4">
+    <div class="map-container"></div>
+    
+
+    <form action="/location" method="get">
+
+<div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([19.0953, 72.8658], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 75,}).addTo(map);
+
+var terminals = [{ name: "Terminal 1", lat: 19.0931, lon: 72.8568},{ name: "Terminal 2", lat: 19.09753, lon: 72.8747 }];
+terminals.forEach(function (terminal) { L.marker([terminal.lat, terminal.lon]).addTo(map) .bindPopup(terminal.name);});
+var routes = [
+{ name: "A", from: "Terminal 1", to: "Terminal 2", coordinates: [[19.089316, 72.867630], [19.097042, 72.874606]] },
+{ name: "B", from: "Terminal 2", to: "Terminal 1", coordinates: [[19.095331, 72.872832], [19.097042, 72.874606]] },
+{ name: "C", from: "Terminal 1", to: "Terminal 2", coordinates: [[19.097042, 72.874606], [19.095331, 72.872832]] }
+];
+
+    </script>
+            
+
+</div>
+
+<footer>
+    &copy; 2023 AeroExpress
+</footer>
+
+</body>
+</html>
